@@ -12,12 +12,12 @@ function Profile(props) {
   return (
     <>
       <p>hello, {props.name}</p>
-      <button onClick={props.handleLogout}>Logout</button>
+      {/* <button onClick={props.handleLogout}>Logout</button> */}
     </>
   );
 }
 
-function Login(props) {
+export function Login(props) {
   const Login = {
     margin: "0 auto",
     padding:'5% 5%',
