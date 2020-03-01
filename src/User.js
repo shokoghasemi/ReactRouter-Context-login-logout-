@@ -12,7 +12,6 @@ function Profile(props) {
   return (
     <>
       <p>hello, {props.name}</p>
-      {/* <button onClick={props.handleLogout}>Logout</button> */}
     </>
   );
 }

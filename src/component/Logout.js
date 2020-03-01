@@ -7,7 +7,7 @@ export default function Profile(props) {
       <UserContext.Consumer>
         {user =>
           user.LoggedIn ? (
-            <ProfilL {...user}/>
+            <ProfileLogOut {...user}/>
           ) : (
             <Login {...user} />
           )
@@ -17,7 +17,7 @@ export default function Profile(props) {
     </>
   );
 }
-function ProfilL(props) {
+function ProfileLogOut(props) {
     return (
       <>
         <p>hello, {props.name}</p>
