@@ -6,12 +6,14 @@ class UserProvider extends React.Component {
         name: '',
         password: '',
         LoggedIn: false,
+        error:'',
         handleLogout: () => {
             this.setState({
                 ...this.state,
                 LoggedIn: false,
                 name: "",
-                password: ""
+                password: "",
+                error:"",
             })
         },
         handleLogin: () => {
@@ -19,7 +21,13 @@ class UserProvider extends React.Component {
             if (this.state.name === "admin" && this.state.password === "admin") {
                 this.setState({
                     ...this.state,
-                    LoggedIn: true,
+                    LoggedIn: true,    
+                })
+            }
+            else{
+                this.setState({
+                    ...this.state,
+                    error:"دقت کنید",   
                 })
             }
         },

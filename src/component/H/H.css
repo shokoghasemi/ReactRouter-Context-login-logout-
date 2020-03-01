@@ -1,0 +1,9 @@
+h2 {
+  display: inline-block;
+  margin: 0 auto;
+}
+h4 {
+  display: inline;
+  width: 20%;
+  margin: 2% 6% 2% 0;
+}

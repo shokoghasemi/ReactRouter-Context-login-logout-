@@ -1,60 +1,46 @@
 import React from "react";
+import Input from "./component/Input/Input";
+import ProfileLogOut from "./component/Logout";
+import P from "./component/P/P";
+import H4 from "./component/H/H";
+import Button from "./component/Button/Button";
 import { UserContext } from "./UserProvider";
+import './User.css'
 function User() {
   return (
     <UserContext.Consumer>
-      {user => (user.LoggedIn ? <Profile {...user} /> : <Login {...user} />)}
+      {user =>
+        user.LoggedIn ? <ProfileLogOut {...user} /> : <Login {...user} />
+      }
     </UserContext.Consumer>
   );
 }
 export default User;
-function Profile(props) {
-  return (
-    <>
-      <p>hello, {props.name}</p>
-    </>
-  );
-}
 
 export function Login(props) {
-  const Login = {
-    margin: "0 auto",
-    padding:'5% 5%',
-    maxWidth: "40%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around"
-  };
-  const h4={
-      margin:"0 auto",
-  }
-  const button={
-      margin:"2% auto",
-      backgroundColor:"red"
-  }
   return (
-    <div style={Login}>
-      <p>please, Login</p>
+    <div className="Login">
+      <P perDiscription="Please Login" />
       <>
-        <h4 style={h4}>UserName</h4>
-        <input
-          title="userName"
-          type="text"
-          name="name"
-          onChange={props.handleName}
-        ></input>
+        <H4 discription="UserName" />
+        <Input
+          Title="userName"
+          Type="text"
+          Name="name"
+          OnChange={props.handleName}
+        />
       </>
       <>
-        <h4 style={h4}>Password</h4>
-        <input
-          title="Password"
-          type="text"
-          name="password"
-          onChange={props.handlePassword}
-        ></input>
+        <H4 discription="Password" />
+        <Input
+          Title="password"
+          Type="text"
+          Name="password"
+          OnChange={props.handlePassword}
+        />
       </>
-
-      <button style={button} onClick={props.handleLogin}>Login</button>
+      <Button OnClick={props.handleLogin} discription="Login" />
+      <P perDiscription={props.error} />
     </div>
   );
 }
