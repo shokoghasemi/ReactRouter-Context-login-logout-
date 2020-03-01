@@ -1,21 +1,27 @@
-import React from 'react';
-import './App.css';
-import UserProvider from './UserProvider';
-import User from './User'
+import React from "react";
+import UserProvider from "./UserProvider";
+import User from "./User";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { UserContext } from './UserProvider'
-import Panel from './component/Panel.js';
-import About from './component/About.js';
-import Logout from './component/Logout';
+import { UserContext } from "./UserProvider";
+import Panel from "./component/Panel.js";
+import About from "./component/About.js";
+import Logout from "./component/Logout";
+import "./App.css";
 
 class App extends React.Component {
   render() {
+    const mystyle = {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-around",
+      listStyleType: "none"
+    };
     return (
       <React.Fragment>
         <UserProvider>
           <Router>
             <nav>
-              <ul>
+              <ul style={mystyle} className="nav-menu">
                 <li>
                   <Link to="/">Login</Link>
                 </li>
@@ -23,7 +29,18 @@ class App extends React.Component {
                   <Link to="/about">About</Link>
                 </li>
                 <UserContext.Consumer>
-                  {(user) => user.LoggedIn ? <div><li><Link to="/panel">Panel</Link></li> <li><Link to="/logout">logout</Link></li> </div> : null}
+                  {user =>
+                    user.LoggedIn ? (
+                      <>
+                      <li>
+                        <Link to="/panel">Panel</Link>
+                      </li>
+                       <li>
+                       <Link to="/logout">logout</Link>
+                     </li>
+                     </>
+                    ) : null
+                  }
                 </UserContext.Consumer>
               </ul>
             </nav>
