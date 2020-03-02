@@ -1,10 +1,10 @@
 import React from "react";
-import Input from "./component/Input/Input";
-import ProfileLogOut from "./component/Logout";
-import P from "./component/P/P";
-import H4 from "./component/H/H";
-import Button from "./component/Button/Button";
-import { UserContext } from "./UserProvider";
+import Input from "../component/Input/Input";
+import ProfileLogOut from "../Logout/Logout";
+import P from "../component/P/P";
+import H4 from "../component/H/H";
+import Button from "../component/Button/Button";
+import { UserContext } from "../UserProvider";
 import './User.css'
 function User() {
   return (
@@ -21,7 +21,7 @@ export function Login(props) {
   return (
     <div className="Login">
       <P perDiscription="Please Login" />
-      <>
+      <div>
         <H4 discription="UserName" />
         <Input
           Title="userName"
@@ -29,8 +29,8 @@ export function Login(props) {
           Name="name"
           OnChange={props.handleName}
         />
-      </>
-      <>
+      </div>
+      <div>
         <H4 discription="Password" />
         <Input
           Title="password"
@@ -38,7 +38,7 @@ export function Login(props) {
           Name="password"
           OnChange={props.handlePassword}
         />
-      </>
+      </div>
       <Button OnClick={props.handleLogin} discription="Login" />
       <P perDiscription={props.error} />
     </div>

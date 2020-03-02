@@ -1,8 +1,8 @@
 import React from "react";
 import { UserContext } from "../UserProvider";
-import { Login } from "../User";
-import P from "./P/P";
-import Button from "./Button/Button";
+import { Login } from "../User/User";
+import P from "../component/P/P";
+import Button from "../component/Button/Button";
 import './Logout.css'
 export default function Profile(props) {
   return (
